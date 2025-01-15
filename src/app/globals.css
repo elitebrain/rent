@@ -35,6 +35,148 @@ a {
   text-decoration: none;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+label {
+  display: inline-block;
+  vertical-align: middle;
+  width: 200px;
+}
+input {
+  padding: 6px 12px;
+  text-align: right;
+}
+.row {
+  margin-bottom: 10px;
+}
+.row.total {
+  border-top: 1px solid #000;
+  padding-top: 6px;
+  font-weight: 700;
+}
+.row.button {
+  text-align: right;
+  margin-top: 12px;
+}
+.row.button > button {
+  width: 80px;
+  height: 30px;
+  border: 1px solid #1ec93c88;
+  background-color: #1ec93c;
+  color: #fff;
+  border-radius: 8px;
+}
+.row.button.init > button {
+  border: 1px solid #0e84da88;
+  background-color: #0e84da;
+}
+.cost {
+  display: inline-block;
+  width: 167px;
+  text-align: right;
+}
+.list {
+  position: relative;
+  line-height: 24px;
+}
+.list > .summary {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(100% - 60px);
+}
+.list > .delete {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  margin-left: 12px;
+  background-color: #fff;
+  color: #f00;
+  border: 1px solid #f00;
+  width: 48px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  padding-block: 2px;
+  border-radius: 4px;
+}
+.list > .delete:hover {
+  background-color: red;
+  color: #fff;
+}
+/* .list::before {
+  content: "삭제";
+  position: absolute;
+  right: -60px;
+  background-color: #fff;
+  color: #f00;
+  border: 1px solid #f00;
+  width: 48px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 15px;
+  padding-block: 2px;
+  border-radius: 4px;
+}
+.list::before:hover {
+  background-color: red;
+  color: #fff;
+} */
+button:hover {
+  cursor: pointer;
+}
+.input_container,
+.result_container {
+  display: inline-block;
+  padding: 12px;
+  box-shadow: 2px 4px 6px #0008;
+  border-radius: 8px;
+}
+.input_container {
+  margin-right: 24px;
+}
+.platform-container {
+  display: inline-block;
+  vertical-align: middle;
+  width: 167px;
+  font-size: 0;
+}
+.platform {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+  padding-left: 20px;
+  font-size: 16px;
+}
+.platform:hover {
+  cursor: pointer;
+}
+.platform::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.platform.active::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #0e84da;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
