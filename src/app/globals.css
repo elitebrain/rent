@@ -88,6 +88,10 @@ input {
   vertical-align: middle;
   width: calc(100% - 60px);
 }
+.list > .summary:hover {
+  cursor: pointer;
+  background-color: #efefef;
+}
 .list > .delete {
   display: inline-block;
   vertical-align: middle;
@@ -176,6 +180,20 @@ button:hover {
   left: 2px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.detail-container {
+  margin-right: 60px;
+  padding: 12px;
+  background-color: #dfdfdf;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 @media (prefers-color-scheme: dark) {
   html {
