@@ -14,7 +14,7 @@ const Rent = () => {
     secondCost: string;
     thirdCost: string;
   }>({
-    no: null,
+    no: 0,
     platform: "쏘카",
     car: "",
     period: "",
@@ -59,7 +59,7 @@ const Rent = () => {
     firstCost: number,
     secondCost: number,
     thirdCost: number
-  ): number => {
+  ): { cost: number; drivingCharge: number } => {
     let drivingCharge = 0;
     if (distance <= 30) {
       drivingCharge = distance * firstCost;
@@ -191,7 +191,7 @@ const Rent = () => {
    * 플랫폼 선택 라디오 버튼
    * @param platform "쏘카" | "그린카"
    */
-  const handlePlatform = (platform) => {
+  const handlePlatform = (platform: "쏘카" | "그린카") => {
     setValues((prevState) => ({
       ...prevState,
       platform,
@@ -202,7 +202,7 @@ const Rent = () => {
    * 삭제 핸들러
    * @param no number
    */
-  const handleClick = (no) => {
+  const handleClick = (no: number) => {
     if (window.confirm("삭제 하시겠습니까?")) {
       const leftList = list.filter((v) => v.no !== no);
       localStorage.setItem("rentList", JSON.stringify(leftList));
