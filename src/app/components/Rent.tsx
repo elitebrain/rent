@@ -225,80 +225,86 @@ const Rent = () => {
   };
 
   return (
-    <div>
+    <>
       <div className="input_container">
-        <div className="row">
-          <label>플랫폼</label>
-          <span className="platform-container">
-            <span
-              className={`platform ${
-                values.platform === "쏘카" ? " active" : ""
-              }`}
-              onClick={() => handlePlatform("쏘카")}
-            >
-              쏘카
+        <div className="input_wrapper">
+          <div className="row">
+            <label>플랫폼</label>
+            <span className="platform-container">
+              <span
+                className={`platform ${
+                  values.platform === "쏘카" ? " active" : ""
+                }`}
+                onClick={() => handlePlatform("쏘카")}
+              >
+                쏘카
+              </span>
+              <span
+                className={`platform ${
+                  values.platform === "그린카" ? " active" : ""
+                }`}
+                onClick={() => handlePlatform("그린카")}
+              >
+                그린카
+              </span>
             </span>
-            <span
-              className={`platform ${
-                values.platform === "그린카" ? " active" : ""
-              }`}
-              onClick={() => handlePlatform("그린카")}
-            >
-              그린카
-            </span>
-          </span>
-        </div>
-        <div className="row">
-          <label>차종</label>
-          <input name="car" value={values.car} onChange={onChange} />
-        </div>
-        <div className="row">
-          <label>이용기간</label>
-          <input name="period" value={values.period} onChange={onChange} />
-        </div>
-        <div className="row">
-          <label>렌트 비용</label>
-          <input name="rent" value={values.rent} onChange={onChange} />
-        </div>
-        <div className="row">
-          <label>보험료</label>
-          <input
-            name="insuranceFee"
-            value={values.insuranceFee}
-            onChange={onChange}
-          />
-        </div>
-        <div className="row">
-          <label>예상 주행 거리</label>
-          <input name="distance" value={values.distance} onChange={onChange} />
-        </div>
-        <div className="row">
-          <label>주행 거리별 금액(0~30km)</label>
-          <input
-            name="firstCost"
-            value={values.firstCost}
-            onChange={onChange}
-          />
-        </div>
-        <div className="row">
-          <label>주행 거리별 금액(30~100km)</label>
-          <input
-            name="secondCost"
-            value={values.secondCost}
-            onChange={onChange}
-          />
-        </div>
-        <div className="row">
-          <label>주행 거리별 금액(100km ~)</label>
-          <input
-            name="thirdCost"
-            value={values.thirdCost}
-            onChange={onChange}
-          />
-        </div>
-        <div className="row total">
-          <label>총 예상 금액</label>
-          <p className="cost">{`${totalCost.toLocaleString()} 원`}</p>
+          </div>
+          <div className="row">
+            <label>차종</label>
+            <input name="car" value={values.car} onChange={onChange} />
+          </div>
+          <div className="row">
+            <label>이용기간</label>
+            <input name="period" value={values.period} onChange={onChange} />
+          </div>
+          <div className="row">
+            <label>렌트 비용</label>
+            <input name="rent" value={values.rent} onChange={onChange} />
+          </div>
+          <div className="row">
+            <label>보험료</label>
+            <input
+              name="insuranceFee"
+              value={values.insuranceFee}
+              onChange={onChange}
+            />
+          </div>
+          <div className="row">
+            <label>예상 주행 거리</label>
+            <input
+              name="distance"
+              value={values.distance}
+              onChange={onChange}
+            />
+          </div>
+          <div className="row">
+            <label>주행 거리별 금액(0~30km)</label>
+            <input
+              name="firstCost"
+              value={values.firstCost}
+              onChange={onChange}
+            />
+          </div>
+          <div className="row">
+            <label>주행 거리별 금액(30~100km)</label>
+            <input
+              name="secondCost"
+              value={values.secondCost}
+              onChange={onChange}
+            />
+          </div>
+          <div className="row">
+            <label>주행 거리별 금액(100km ~)</label>
+            <input
+              name="thirdCost"
+              value={values.thirdCost}
+              onChange={onChange}
+            />
+          </div>
+          <div className="row total">
+            <label>총 예상 금액</label>
+            <p className="cost">{`${totalCost.toLocaleString()} 원`}</p>
+          </div>
         </div>
         <div className="row button">
           <button onClick={handleSave}>저장</button>
@@ -306,60 +312,62 @@ const Rent = () => {
       </div>
       {list.length > 0 && (
         <div className="result_container">
-          {list.map((item, i) => (
-            <div key={i} className="list">
-              <span className="summary" onClick={() => handleDetailView(i)}>
-                {`${item.platform} / ${item.car} / ${item.period} / ${
-                  item.distance
-                }km 주행 / ${item.cost.toLocaleString()} 원`}
-              </span>
-              <button className="delete" onClick={() => handleClick(item.no)}>
-                삭제
-              </button>
-              {detailViewIdx === i && (
-                <div className="detail-container">
-                  <div className="flex justify-between">
-                    <label>플랫폼</label>
-                    <p>{item.platform}</p>
+          <div className="list_wrapper">
+            {list.map((item, i) => (
+              <div key={i} className="list">
+                <span className="summary" onClick={() => handleDetailView(i)}>
+                  {`${item.platform} / ${item.car} / ${
+                    item.period
+                  } / ${item.cost.toLocaleString()} 원`}
+                </span>
+                <button className="delete" onClick={() => handleClick(item.no)}>
+                  삭제
+                </button>
+                {detailViewIdx === i && (
+                  <div className="detail-container">
+                    <div className="flex justify-between">
+                      <label>플랫폼</label>
+                      <p>{item.platform}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>차종</label>
+                      <p>{item.car}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>이용 기간</label>
+                      <p>{item.period}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>예상 주행 거리</label>
+                      <p>{item.distance}km</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>렌트 비용</label>
+                      <p>{item.rent.toLocaleString()}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>보험료</label>
+                      <p>{item.insuranceFee.toLocaleString()}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>주행 요금</label>
+                      <p>{item.drivingCharge.toLocaleString()}</p>
+                    </div>
+                    <div className="flex justify-between">
+                      <label>총 예상 비용</label>
+                      <p>{item.cost.toLocaleString()}</p>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <label>차종</label>
-                    <p>{item.car}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>이용 기간</label>
-                    <p>{item.period}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>예상 주행 거리</label>
-                    <p>{item.distance}km</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>렌트 비용</label>
-                    <p>{item.rent.toLocaleString()}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>보험료</label>
-                    <p>{item.insuranceFee.toLocaleString()}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>주행 요금</label>
-                    <p>{item.drivingCharge.toLocaleString()}</p>
-                  </div>
-                  <div className="flex justify-between">
-                    <label>총 예상 비용</label>
-                    <p>{item.cost.toLocaleString()}</p>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            ))}
+          </div>
           <div className="row button init">
             <button onClick={handleInit}>초기화</button>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -37,9 +37,17 @@ a {
 
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  gap: 24px;
+  padding-inline: 16px;
+}
+@media (min-width: 892px) {
+  .container {
+    flex-direction: row;
+  }
 }
 label {
   display: inline-block;
@@ -138,9 +146,12 @@ button:hover {
   padding: 12px;
   box-shadow: 2px 4px 6px #0008;
   border-radius: 8px;
+  height: 500px;
 }
-.input_container {
-  margin-right: 24px;
+.input_wrapper,
+.list_wrapper {
+  height: 424px;
+  overflow: auto;
 }
 .platform-container {
   display: inline-block;
